@@ -2,7 +2,7 @@
 import { useDebouncedCallback } from "use-debounce";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { usePathname, useSearchParams, useRouter } from "next/navigation";
-import { useRef, useState } from "react";
+import { useState } from "react";
 
 export default function Search({ placeholder }: { placeholder: string }) {
   const [isTyping, setIsTyping] = useState(false);

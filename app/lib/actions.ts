@@ -3,7 +3,6 @@
 import { signIn } from "@/auth";
 import { AuthError } from "next-auth";
 import { revalidatePath } from "next/cache";
-import { ErrorType } from "next/dist/client/components/react-dev-overlay/pages/pages-dev-overlay";
 import { redirect } from "next/navigation";
 import postgres from "postgres";
 import { z } from "zod";
@@ -121,7 +120,7 @@ export async function authenticate(
     await signIn("credentials", formData);
   } catch (error) {
     if (error instanceof AuthError) {
-      switch (error.type) {
+      switch (error.name) {
         case "CredentialsSignin":
           return "Invalid credentials.";
         default:
